@@ -50,7 +50,7 @@ for e in episodes:
         shutil.move(e, ename+'.mkv')
     #make folder
     #for info in ['_jpg', '_pkl', '_wav']:
-    for info in ['_jpg24', '_wav']:
+    for info in ['_jpg', '_wav']:
         if not os.path.isdir(ename+info):
             os.mkdir(ename+info)
 
