@@ -115,7 +115,7 @@ class Data_Supplier(object):
 
 # coders
 
-def coder_grey(file_path, pixels = 125):
+def coder_grey(file_path, pixels = 128):
 
     im = Image.open(file_path)
     im = ImageOps.fit(im, (pixels, pixels), Image.ANTIALIAS)
