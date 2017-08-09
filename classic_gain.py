@@ -27,7 +27,7 @@ import glob
 from .data import Data_Supplier, coder_grey
 
 
-@profile
+#@profile
 def load_data(pixels=128, verbose=False):
     print("Loading data")
     X_train = []
@@ -45,7 +45,7 @@ def load_data(pixels=128, verbose=False):
     return np.array(X_train)
 
 
-@profile
+#@profile
 def generator_model():
     model = Sequential()
     model.add(Dense(input_dim=100, output_dim=1024))
@@ -63,7 +63,7 @@ def generator_model():
     return model
 
 
-@profile
+#@profile
 def discriminator_model():
     model = Sequential()
     model.add(Convolution2D(
@@ -83,7 +83,7 @@ def discriminator_model():
     return model
 
 
-@profile
+#@profile
 def generator_containing_discriminator(generator, discriminator):
     model = Sequential()
     model.add(generator)
@@ -92,7 +92,7 @@ def generator_containing_discriminator(generator, discriminator):
     return model
 
 
-@profile
+#@profile
 def combine_images(generated_images):
     num = generated_images.shape[0]
     width = int(math.sqrt(num))
@@ -108,7 +108,7 @@ def combine_images(generated_images):
     return image
 
 
-@profile
+#@profile
 def train(epochs, BATCH_SIZE, weights=False):
     """
     :param epochs: Train for this many epochs
@@ -173,6 +173,8 @@ def train(epochs, BATCH_SIZE, weights=False):
             if epoch % 10 == 9:
                 generator.save_weights('goodgenerator.h5', True)
                 discriminator.save_weights('gooddiscriminator.h5', True)
+                
+        training_data.reset()
 
 
 def clean(image):

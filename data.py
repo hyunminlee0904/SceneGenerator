@@ -112,6 +112,13 @@ class Data_Supplier(object):
 
         return
 
+    def shuffle(self):
+
+        random.shuffle(self._training_dataset)
+
+    def reset(self):
+        self._index = 0
+
 
 # coders
 
